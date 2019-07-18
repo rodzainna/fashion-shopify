@@ -1,68 +1,76 @@
-<footer>
+<!-- Footer Start -->
+<footer class="container">
+    <div class="py-8 -mx-4">
+      <div class="flex flex-wrap items-center">
+        <div class="flex flex-col items-center w-full md:w-1/3 my-4 md:my-0">
+          <span class="font-montserrat font-bold text-sm uppercase">Follow Us</span>
 
-  {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
-  <ul>
-    {% for social in social_accounts %}
-      {%- assign social_handle = social | handleize -%}
-      {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
-      {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+          <div class="flex flex-wrap justify-center mt-3">
+            <!-- FB -->
+            <div class="px-4">
+              <a href="#" class="text-gray-300 hover:text-brown-400">
+                <svg width="8" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 9H5v9H2V9H0V6h2V4c0-1.47-.292-4 3-4h3v3H6a1.026 1.026 0 0 0-1 1v2h3L7 9z" fill="currentColor" fill-rule="nonzero"/></svg>
+              </a>
+            </div>
 
-      {% if settings[social_link] != blank %}
-        <li>
-          <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
-            {% include social_icon %}
-            <span class="icon-fallback-text">{{ social }}</span>
-          </a>
-        </li>
-      {% endif %}
+            <!-- Twitter -->
+            <div class="px-4">
+              <a href="#" class="text-gray-300 hover:text-brown-400">
+                <svg width="20" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M17.953 3.98A11.5 11.5 0 0 1 6.289 16 11.793 11.793 0 0 1 0 14.19c.319.03.647.05.978.05a8.344 8.344 0 0 0 5.1-1.73A4.1 4.1 0 0 1 2.243 9.7c.254.052.512.079.771.08.365 0 .729-.047 1.082-.14A4.065 4.065 0 0 1 .803 5.63c.572.31 1.208.481 1.858.5A4.013 4.013 0 0 1 .837 2.77 3.963 3.963 0 0 1 1.391.74a11.734 11.734 0 0 0 8.457 4.22 4.073 4.073 0 0 1 4-4.96 4.139 4.139 0 0 1 2.994 1.27A8.11 8.11 0 0 0 19.45.29a4.065 4.065 0 0 1-1.8 2.24 8.428 8.428 0 0 0 2.356-.64 8.234 8.234 0 0 1-2.053 2.09z" fill="currentColor" fill-rule="nonzero"/></svg>
+              </a>
+            </div>
 
-    {% endfor %}
-  </ul>
+            <!-- Instagram -->
+            <div class="px-4">
+              <a href="#" class="text-gray-300 hover:text-brown-400">
+                <svg width="21" height="21" xmlns="http://www.w3.org/2000/svg"><path d="M6 0h9a6 6 0 0 1 6 6v9a6 6 0 0 1-6 6H6a6 6 0 0 1-6-6V6a6 6 0 0 1 6-6zm0 2a4 4 0 0 0-4 4v9a4 4 0 0 0 4 4h9a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4H6zm4.5 3A5.5 5.5 0 1 1 5 10.5 5.7 5.7 0 0 1 10.5 5zm.08 2a3.666 3.666 0 0 0-3.564 3.56 3.419 3.419 0 0 0 3.421 3.42 3.665 3.665 0 0 0 3.565-3.56A3.42 3.42 0 0 0 10.58 7zM16 4a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" fill="currentColor" fill-rule="nonzero"/></svg>
+              </a>
+            </div>
 
-  {% if section.settings.show_payment_icons %}
-    {% unless shop.enabled_payment_types == empty %}
-      <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
-      <ul class="payment-icons">
-        {% for type in shop.enabled_payment_types %}
-          <li>
-            {{ type | payment_type_svg_tag: class: 'icon' }}
-          </li>
-        {% endfor %}
-      </ul>
-    {% endunless %}
-  {% endif %}
+            <!-- GPlus -->
+            <div class="px-4">
+              <a href="#" class="text-gray-300 hover:text-brown-400">
+                <svg width="30" height="19" xmlns="http://www.w3.org/2000/svg"><path d="M9 8.112v3s3.64-.22 5.06-.22c-.77 2.31-1.97 3.57-4.93 3.57a5.345 5.345 0 1 1 0-10.69 5.234 5.234 0 0 1 3.54 1.31c.75-.74.69-.85 2.6-2.62a9.061 9.061 0 1 0-6.14 15.66c7.53 0 9.48-5.7 8.87-10.01H9zm18 0v-3h-3v3h-3v3h3v2.99l3 .01v-3h3v-3h-3z" fill="currentColor" fill-rule="nonzero"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
 
-  {%- assign footer_linklist = section.settings.footer_linklist -%}
-  {% if linklists[footer_linklist].links.size > 0 %}
-    <ul>
-      {% for link in linklists[footer_linklist].links %}
-        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+        <div class="flex justify-center w-full md:w-1/3 my-4 md:my-0">
+          <img class="h-6 w-auto" src="{{ 'Logo-Black.png' | asset_url }}">
+        </div>
 
-  <div>
-    <small>{{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}. {{ powered_by_link }}</small>
+        <div class="flex flex-col justify-center items-center w-full md:w-1/3 my-4 md:my-0">
+          <span class="font-montserrat font-bold text-sm uppercase">Sign up to our news</span>
+
+          <div class="mt-3">
+            <form class="flex flex-wrap">
+              <input class="border border-gray-300 p-2 text-xs w-48" type="email" name="email"
+                placeholder="Enter your email">
+              <a href="#" class="flex items-center border border-black px-3 bg-black text-white hover:bg-white hover:text-black hover:border hover:border-green-800">
+                <svg width="16" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M0 2.987v2.015h10.993v3.024l5.01-4.035L10.992 0v2.98z" fill="currentColor" fill-rule="evenodd"/></svg>
+              </a>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer End -->
+
+  <div class="bg-black">
+    <div class="container text-white font-lato text-xs py-1">
+      <div class="flex flex-wrap">
+        <p class="text-white text-xs my-0">Design from
+          <a target="_blank" class="underline"
+            href="https://www.sketchappsources.com/free-source/3555-diadema-web-ui-kit-sketch-freebie-resource.html">Diadema
+            UI Kit Sketch Resource</a>
+        </p>
+        &nbsp
+        <p class="text-white text-xs my-0 hidden md:flex">| Thanks to the design team at
+          <a target="_blank" class="underline" href="https://eleken.co/">Eleken</a>
+        </p>
+      </div>
+    </div>
   </div>
-</footer>
-
-{% schema %}
-  {
-    "name": "Footer",
-    "settings": [
-      {
-        "type": "link_list",
-        "id": "footer_linklist",
-        "label": "First menu",
-        "default": "footer"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_payment_icons",
-        "label": "Show payment icons",
-        "default": false
-      }
-    ]
-  }
-
-{% endschema %}

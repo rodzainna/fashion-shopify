@@ -1,72 +1,94 @@
-.clearfix {
-  @include clearfix;
+.object-cover {
+	object-fit: cover;
 }
 
-.visually-hidden {
-  @include visually-hidden;
+.highlight {
+  font-weight: bold;
+  border-left: 4rem;
+  border-color: black;
+  padding-left: 6rem;
+  margin-left: -6rem;
+	// @apply .font-bold .border-l-4 .border-black .pl-6 .-ml-6;
 }
 
-.js-focus-hidden:focus {
-  outline: none;
+.main-category-selected {
+	@apply .border-b-2 .border-black .font-bold .py-4;
 }
 
-.label-hidden {
-  @include visually-hidden;
+input[type="checkbox"]:checked {
+	background: #0000;
+	border: #237829 1px solid;
+ }
 
-  // No placeholders, so force show labels
-  .no-placeholder & {
-    @include visually-shown;
-  }
-}
+ .p-reset {
+   font-family: 'Lato';
+   color: black;
+   font-size: 1rem;
+   margin: 0 auto;
+   line-height: 1.5;
+	// @apply .font-lato .text-black .text-base .leading-normal .my-0;
+ }
 
-.visually-shown {
-  @include visually-shown;
-}
+ ul.product-3-details {
+	 li {
+		&:last-child {
+      border-bottom: 1px;
+      border-color: #e5e5e5;
+		}
+	}
+ }
 
-// Only show when JS is not supported
-.no-js:not(html) {
-  display: none;
+ .clearHeader {
+   color: white;
+   padding-top: 6rem;
+   padding-bottom: 6rem;
+   border: 0px;
+ }
 
-  .no-js & {
-    display: block;
-  }
-}
+ .darkHeader {
+   background: white;
+   border-bottom: 1px;
+   border-color: #e5e5e5;
+   color: black;
+   padding: 4rem auto;
+	//  @apply bg-white text-black py-4 border-b border-gray-200;
+ }
 
-// Only show when JS is supported
-.js {
-  .no-js & {
-    display: none;
-  }
-}
+ .product2-active {
+   border-bottom: 2px;
+   border-color: #4A4A4A;
+   color: #4A4A4A;
+	// @apply border-b-2 border-gray-600 text-gray-600;
+ }
 
-// Only show when browser cookies are not supported
-.supports-no-cookies:not(html) {
-  display: none;
-
-  html.supports-no-cookies & {
-    display: block;
-  }
-}
-
-// Only show when browser cookies are supported
-.supports-cookies {
-  html.supports-no-cookies & {
-    display: none;
-  }
-}
-
-// Skip to content button
-// Overrides .visually-hidden when focused
-.skip-link:focus {
-  @include visually-shown(absolute);
-  z-index: 10000;
-  padding: $grid-gutter / 2;
-  background-color: $color-body;
-  color: $color-body-text;
-  transition: none;
-}
-
-.hide {
-  /* stylelint-disable declaration-no-important */
-  display: none !important;
+ .slick-dots {
+	display: flex;
+	justify-content: center;
+	
+	margin: 0;
+	padding: 1rem 0;
+	
+	list-style-type: none;
+	
+		li {
+			margin: 0 0.25rem;
+		}
+	
+		button {
+			display: block;
+			width: 0.5rem;
+			height: 0.5rem;
+			padding: 0;
+			
+			border: 1px black solid;
+			border-radius: 100%;
+			background-color: white;
+			
+			text-indent: -9999px;
+		}
+	
+		li.slick-active button {
+			background-color: black;
+		}
+	
 }

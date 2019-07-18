@@ -1,7 +1,7 @@
 @charset 'UTF-8';
 
 /**
- * [replace with theme name] | Built with Slate
+ * Fashion Rodzainna | Built with Slate
  */
 @import '~normalize.css/normalize';
 
@@ -28,6 +28,8 @@
 @import './components/placeholders';
 @import './components/responsive-images';
 @import './components/address-forms';
+@import './components/checkbox';
+@import './components/radio-button';
 
 // Sections
 @import './sections/blog-posts';
