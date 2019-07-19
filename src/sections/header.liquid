@@ -1,16 +1,17 @@
 <!-- Header Start -->
-<header class="clearHeader fixed w-full z-50">
+<header id="header" class="clearHeader fixed w-full z-50">
   <div class="container">
     <div class="flex justify-between items-center">
       <a href="/">
-        <img id="header-logo" alt="" class="max-w-full h-6 w-auto" src="{{ 'Logo.png' | asset_url }}">
+        <img id="header-logo-white" alt="" class="max-w-full h-6 w-auto" src="{{ 'Logo.png' | asset_url }}">
+        <img id="header-logo-black" alt="" class="max-w-full h-6 w-auto hidden" src="{{ 'Logo-Black.png' | asset_url }}">
       </a>
       <div class="flex hidden md:flex">
         <ul class="flex list-none font-montserrat text-sm">
-          <li><a href="shop.html" class="uppercase mr-12 tracking-wider">Lookbook</a></li>
-          <li><a href="blogs.html" class="uppercase mr-12 tracking-wider">Blogs</a></li>
-          <li><a href="article.html" class="uppercase mr-12 tracking-wider">Article</a></li>
-          <li><a href="contact.html" class="uppercase mr-12 tracking-wider">Contacts</a></li>
+          <li><a href="shop" class="uppercase mr-12 tracking-wider">Lookbook</a></li>
+          <li><a href="pages/blogs" class="uppercase mr-12 tracking-wider">Blogs</a></li>
+          <li><a href="pages/article" class="uppercase mr-12 tracking-wider">Article</a></li>
+          <li><a href="pages/contact" class="uppercase mr-12 tracking-wider">Contacts</a></li>
         </ul>
 
         <a class="hover:text-green-500">
