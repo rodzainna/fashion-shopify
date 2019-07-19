@@ -14389,6 +14389,8 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   initHorizontalSlider();
   initVerticalSlider();
   initSuggestedArticles();
+  initTopNewsSlider();
+  initBlogsSlider();
   initProduct2Tabs();
 
   function initProduct2Tabs() {
@@ -14623,7 +14625,71 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
           slidesToScroll: 1
         }
       }]
-    }); //End Upcoming Events
+    });
+  }
+
+  function initTopNewsSlider() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#top-news').slick({
+      infinite: false,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      prevArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('#top-news-prev'),
+      nextArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('#top-news-next'),
+      responsive: [{
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      }, {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      }, {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true
+        }
+      }]
+    });
+  }
+
+  function initBlogsSlider() {
+    console.log('init Blog Sliders');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#blog-slider').slick({
+      autoplay: true,
+      autoplaySpeed: 3000,
+      dots: true,
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      prevArrow: false,
+      nextArrow: false,
+      responsive: [{
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true
+        }
+      }, {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }, {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }]
+    }); //End Banner Slider
   }
 });
 
