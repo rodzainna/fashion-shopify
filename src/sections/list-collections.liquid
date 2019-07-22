@@ -1,0 +1,26 @@
+{% comment %}
+This page represents the /collections and /products pages.
+{% endcomment %}
+
+<!-- Main Categories -->
+<div class="border-t border-b border-gray-300 -mx-6">
+    <div class="container">
+        <div class="flex justify-start md:justify-center overflow-x-scroll text-black">
+
+
+            <ul class="flex flex-no-wrap">
+
+                {% for collection in collections %}
+                {% unless collection.handle == 'frontpage' %}
+                <li class="py-4">
+                    <a class="uppercase mx-6 font-montserrat text-sm" href="{{ collection.url }}"
+                        title="{{ 'collections.general.link_title' | t: title: title }}">{{ collection.title }}</a>
+                </li>
+                {% endunless %}
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Main Categories End -->
