@@ -2,12 +2,13 @@
     {% for product in collection.products %}
         <div class="w-full md:w-1/2 lg:w-1/3 px-4 py-4">
             <a href="{{ product.url | within: collection }}">
-                <div class="flex flex-col text-center">
+                <div class="flex flex-col items-center text-center">
                     {% if product.featured_image != blank %}
                         {% include 'responsive-image' with
                         image: product.featured_image,
                         max_width: 262,
                         max_height: 276,
+                        img_size: '262x276',
                         image_class: 'object-cover max-w-full h-auto'
                         %}
                     {% endif %}

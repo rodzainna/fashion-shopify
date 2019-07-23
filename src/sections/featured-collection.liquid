@@ -14,39 +14,32 @@
 
     {% for product in collection.products limit: 6 %}
         <div class="w-full sm:w-1/2 md:w-1/3 px-4 md:px-4 my-4">
-            <div class="flex flex-wrap justify-center text-center">
-                <a href="{{ product.url | within: collection }}" class="hover:text-brown-400 cursor-pointer">
-                  {% if product.featured_image != blank %}
-                      {% include 'responsive-image' with
-                        image: product.featured_image,
-                        max_width: 262,
-                        max_height: 276,
-                        image_class: 'w-full object-cover max-w-full h-auto'
-                      %}
-                  {% endif %}
-                  <div class="text-center w-full mt-2">
-                      <p class="text-2xl font-unna p-reset">{{ product.title | escape }}</p>
-                      <span class="text-gray-400 font-lato text-sm p-reset">
-                          {% if product.compare_at_price > product.price %}
-                            {% if product.price_varies %}
-                              {%- assign sale_price = product.price | money -%}
-                              {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
-                            {% else %}
-                              {{ 'products.product.on_sale' | t }}
-                              {{ product.price | money }}
-                            {% endif %}
+              <a href="{{ product.url | within: collection }}" class="flex flex-wrap justify-center hover:text-brown-400 cursor-pointer w-full">
+                
+                <img class="w-full object-cover max-w-full"
+                     src="{{ product.featured_image | img_url }}" alt="">
+                <div class="text-center w-full mt-2">
+                    <p class="text-2xl font-unna p-reset">{{ product.title | escape }}</p>
+                    <span class="text-gray-400 font-lato text-sm p-reset">
+                        {% if product.compare_at_price > product.price %}
+                          {% if product.price_varies %}
+                            {%- assign sale_price = product.price | money -%}
+                            {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
                           {% else %}
-                            {% if product.price_varies %}
-                              {%- assign price = product.price | money -%}
-                              {{ 'products.product.from_text_html' | t: price: price }}
-                            {% else %}
-                              {{ product.price | money }}
-                            {% endif %}
+                            {{ 'products.product.on_sale' | t }}
+                            {{ product.price | money }}
                           {% endif %}
-                      </span>
-                  </div>
-                </a>
-            </div>
+                        {% else %}
+                          {% if product.price_varies %}
+                            {%- assign price = product.price | money -%}
+                            {{ 'products.product.from_text_html' | t: price: price }}
+                          {% else %}
+                            {{ product.price | money }}
+                          {% endif %}
+                        {% endif %}
+                    </span>
+                </div>
+              </a>
         </div>
     {% else %}
         {% for i in (1..6) %}

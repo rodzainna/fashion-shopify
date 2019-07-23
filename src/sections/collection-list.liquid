@@ -9,13 +9,14 @@
 <div class="flex flex-wrap -mx-4">
 
   {% for block in section.blocks %}
-    {%- assign collection = collections[block.settings.collection] -%}
+      {%- assign collection = collections[block.settings.collection] -%}
 
-    {% include 'products' %}
+      {% include 'products' %}
 
-  {% if section.blocks.size == 0 %}
-    {% include 'no-blocks' %}
-  {% endif %}
+      {% if section.blocks.size == 0 %}
+        {% include 'no-blocks' %}
+      {% endif %}
+  {% endfor %}
 </div>
 
 {% schema %}
