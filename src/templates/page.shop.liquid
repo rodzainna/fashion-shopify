@@ -9,13 +9,12 @@
         {% include 'sidebar' %}
 
         <div class="w-full md:w-2/3 lg:w-3/4 px-4">
-            <div class="flex flex-wrap -mx-4">
-                {% section 'collection-list' %}
-                {% if paginate.pages > 1 %}
-                    {% include 'pagination' %}
-                {% endif %}
-
-            </div>
+        
+            {% section 'collection-list' %}
+            {% if paginate.pages > 1 %}
+                {% include 'pagination' %}
+            {% endif %}
+            
             <!-- Pagination Start -->
             <div class="py-2 w-full border-t border-b border-green-300">
                 <div class="flex flex-wrap justify-between items-center">
