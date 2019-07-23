@@ -14463,12 +14463,12 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       var scroll = jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop();
 
       if (scroll >= 10) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()("#header-logo-white").hide();
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()("#header-logo-black").show();
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()("#header #header-logo-white").hide();
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()("#header #header-logo-black").show();
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('#header').addClass('darkHeader');
       } else {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()("#header-logo-white").show();
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()("#header-logo-black").hide();
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()("#header #header-logo-white").show();
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()("#header #header-logo-black").hide();
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('#header').removeClass('darkHeader');
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('#header').addClass('clearHeader');
       }

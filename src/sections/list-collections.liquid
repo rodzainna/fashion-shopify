@@ -11,12 +11,17 @@ This page represents the /collections and /products pages.
             <ul class="flex flex-no-wrap">
 
                 {% for collection in collections %}
-                {% unless collection.handle == 'frontpage' %}
-                <li class="py-4">
-                    <a class="uppercase mx-6 font-montserrat text-sm" href="{{ collection.url }}"
-                        title="{{ 'collections.general.link_title' | t: title: title }}">{{ collection.title }}</a>
-                </li>
-                {% endunless %}
+                    <!-- Check if collection has products -->
+                    {% if collection.all_tags.size > 0 %}
+                        <!-- Dont include the "frontpage" collection on the list -->
+                        {% unless collection.handle == 'frontpage' %}
+                            <li class="py-4">
+                                <a class="uppercase mx-6 font-montserrat text-sm" href="{{ collection.url }}"
+                                    title="{{ 'collections.general.link_title' | t: title: title }}">{{ collection.title }}</a>
+                            </li>
+                        {% endunless %}
+                    {% endif %}
+                    <!-- Check if collection has products End -->
                 {% endfor %}
 
             </ul>

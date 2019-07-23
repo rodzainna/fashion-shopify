@@ -1,17 +1,4 @@
-{%- comment -%}
-  This is a required section for the Shopify Theme Store.
-  It is available when you add "Collection list" section in the Theme Editor.
-
-  Theme Store required settings
-  - Heading: title of the collection list section
-  - Collection
-{%- endcomment -%}
-<section class="flex flex-wrap -mx-4">
-
-  {% for block in section.blocks %}
-    {%- assign collection = collections[block.settings.collection] -%}
-
-    {% paginate collection.products by 12 %}
+{% paginate collection.products by 12 %}
     {% for product in collection.products %}
     <div class="w-full md:w-1/2 lg:w-1/3 px-4 py-4">
         <a href="{{ product.url | within: collection }}">
@@ -61,6 +48,7 @@
     </div>
 
     {% else %}
+    <div>This is an else for the collections</div>
     <!-- If Collection Handle is All  -->
     {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
       {% for i in (1..8) %}
@@ -84,55 +72,4 @@
     {% endfor %}
     <!-- End For Each Product -->
 
-    {% endpaginate %}
-  {% endfor %}
-
-  {% if section.blocks.size == 0 %}
-    {% include 'no-blocks' %}
-  {% endif %}
-</section>
-
-{% schema %}
-  {
-    "name": "Collection list",
-    "max_blocks": 12,
-    "settings": [
-      {
-        "type": "text",
-        "id": "title",
-        "label": "Heading",
-        "default": "Collection list"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "collection",
-        "name": "Collection",
-        "settings": [
-          {
-            "label": "Collection",
-            "id": "collection",
-            "type": "collection"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Collection list",
-        "category": "Collection",
-        "blocks": [
-          {
-            "type": "collection"
-          },
-          {
-            "type": "collection"
-          },
-          {
-            "type": "collection"
-          }
-        ]
-      }
-    ]
-  }
-{% endschema %}
+{% endpaginate %}
