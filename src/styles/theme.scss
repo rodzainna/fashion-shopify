@@ -937,6 +937,10 @@ ul.product-3-details li:last-child {
   background-color: black;
 }
 
+.left-align-slick > .slick-list > .slick-track {
+  margin-left: 0;
+}
+
 /**
  * Here you would add any of your custom component classes; stuff that you'd
  * want loaded *before* the utilities so that the utilities could still

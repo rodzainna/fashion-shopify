@@ -1,0 +1,76 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add the "Image with text" section in the theme editor.
+
+  Theme Store required settings
+  - Image
+  - Heading: title of the block
+  - Text: description of the block
+
+  Theme Store optional settings
+  - Button label: label associated with the button
+  - Button link: link of the button
+{%- endcomment -%}
+
+<div id="blog-slider" class="overflow-hidden">
+    {% for block in section.blocks %}
+        <!-- Blog Slider 1 -->
+        <div class="relative">
+            <img class="object-cover w-full h-header-sm md:h-header-md lg:h-header-lg"
+                src="" alt="">
+
+            <div class="flex flex-col text-center justify-center items-center absolute inset-0 text-white">
+                <span class="font-montserrat font-bold text-sm tracking-widest text-gray-500">FASHION</span>
+                <h1 class="my-6 w-full md:w-2/3 lg:w-1/2">Our Best Backstage Pics From New York’s Fall 2017 Shows</h1>
+
+                <div class="flex flex-no-wrap -mx-4 text-gray-500">
+                    <div class="flex flex-no-wrap items-center px-4">
+                        <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9 18A9 9 0 1 1 9 0a9 9 0 0 1 0 18zM9 .99a8.01 8.01 0 1 0 0 16.02A8.01 8.01 0 0 0 9 .99zM14 10H8V4h1v5h5v1z"
+                                fill="#FFF" fill-rule="nonzero" opacity=".7" /></svg>
+                        <span class="font-lato text-base ml-2">10 minutes</span>
+                    </div>
+
+                    <div class="flex flex-no-wrap items-center px-4">
+                        <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15 14H9.33L6 17.33V18H5v-4H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3zm2-11a2.006 2.006 0 0 0-2-2H3a2.006 2.006 0 0 0-2 2v8a2.006 2.006 0 0 0 2 2h3v2.67L8.67 13H15a2.006 2.006 0 0 0 2-2V3z"
+                                fill="#FFF" fill-rule="nonzero" opacity=".7" /></svg>
+                        <span class="font-lato text-base ml-2">15</span>
+                    </div>
+
+                    <div class="flex flex-no-wrap items-center px-4">
+                        <svg width="19" height="20" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15.25 12.5a3.759 3.759 0 0 0-2.96 1.45l-5.07-2.52c.37-.917.37-1.943 0-2.86l5.07-2.53a3.612 3.612 0 1 0-.51-.86L6.71 7.7a3.755 3.755 0 1 0 0 4.59l5.07 2.53a3.752 3.752 0 1 0 3.47-2.32zm0-11.5a2.75 2.75 0 1 1 0 5.5 2.75 2.75 0 0 1 0-5.5zM3.75 12.75a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5zM15.25 19a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z"
+                                fill="#FFF" fill-rule="nonzero" opacity=".7" /></svg>
+                        <span class="font-lato text-base ml-2">Share 15</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog Slider 1 End -->
+    {% endfor %}
+</div>
+
+{% schema %}
+{
+  "blocks": [
+    {
+        "type": "blogbanner",
+        "name": "Blog Banner",
+        "limit": 5,
+        "settings": [
+          {
+            "type": "blog",
+            "id": "blog",
+            "label": "Select Blog"
+          } //end blog
+        ] //end settings
+        
+    } //end blocks curly
+    
+  ] //end blocks array,
+}
+{% endschema %}
