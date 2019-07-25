@@ -1,0 +1,37 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add the "Image with text" section in the theme editor.
+
+  Theme Store required settings
+  - Image
+  - Heading: title of the block
+  - Text: description of the block
+
+  Theme Store optional settings
+  - Button label: label associated with the button
+  - Button link: link of the button
+{%- endcomment -%}
+
+<div class="banner">
+    {% if section.settings.image.size > 1 %}
+        <img class="w-full h-56 lg:h-80 object-cover"
+              src="{{ section.settings.image | img_url: '700x' }}">
+    {% else %}
+        <div class="w-full h-56 lg:h-80 bg-gray-400"></div>
+    {% endif %}
+    
+</div>
+    
+{% schema %}
+{
+    "name": "Contact Us Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Contact Us Page Banner"
+      }
+    ] //end settings
+}
+{% endschema %}
+    

@@ -17,15 +17,15 @@
 
         {% assign article = articles[block.settings.article]%}
         
-        {% if article.title %}
+        {% if article.image.size > 1 %}
             <!-- Blog Slider 1 -->
             <a href="{{ article.url }}" class="relative">
                 <img class="object-cover w-full h-header-sm md:h-header-md lg:h-header-lg"
                     src="{{ article.image | img_url: '1000x' }}" alt="">
 
                 <div class="flex flex-col text-center justify-center items-center absolute inset-0 text-white">
-                    {% if blog.title %}
-                        <span class="font-montserrat font-bold text-sm tracking-widest text-gray-500 uppercase">{{ blog.title }}</span>
+                    {% if article.tags.size > 0 %}
+                        <span class="font-montserrat font-bold text-sm tracking-widest text-gray-500 uppercase">{{ article.tags | join : " | " }}</span>
                     {% endif %}
                     {% if article.title %}
                         <h1 class="my-6 w-full md:w-2/3 lg:w-1/2">{{ article.title }}</h1>

@@ -14,6 +14,7 @@
 
 <div id="banner-slider" class="">
     {% for block in section.blocks %}
+        {% if block.settings.image.size > 1 %}
         <div class="h-header-sm md:h-header-md lg:h-header-lg px-4 relative">
             <img class="absolute w-full h-header-sm md:h-header-md lg:h-header-lg object-cover"
               src="{{ block.settings.image | img_url: '700x' }}">
@@ -41,6 +42,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
     {% endfor %}
 </div>
 
