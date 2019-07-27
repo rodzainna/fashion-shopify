@@ -5,13 +5,14 @@
 
       <form action="/cart" method="post" novalidate>
         <div class="overflow-scroll">
-          <table class="w-table-sm md:w-full">
+          <table class="table-auto w-table-sm md:w-full">
             <thead class="text-left font-montserrat font-normal text-sm text-gray-400 border-b border-gray-300">
               <tr>
                   <th class="py-2">ITEM</th>
-                  <th class="py-2 px-4 text-right w-32">SIZE</th>
-                  <th class="py-2 px-4 text-center w-24">QTY</th>
-                  <th class="py-2 px-4 text-right  w-32">PRICE</th>
+                  <th class="py-2 px-4 text-right">SIZE</th>
+                  <th class="py-2 px-4 text-center">QTY</th>
+                  <th class="py-2 px-4 text-right">PRICE</th>
+                  <th class="py-2 px-4 text-right">TOTAL</th>
                   <th class="py-2 px-4"></th>
               </tr>
             </thead>
@@ -28,17 +29,19 @@
               {% endcomment %}
 
                 <tr class="relative">
-
                   <td class="my-4 flex flex-no-wrap items-center"
                       data-label="{{ 'customer.order.product' | t }}">
 
                     {% if item.image != blank %}
-                      <a href="{{ item.url | within: collections.all }}">
-                        {{ item | img_url: '80x96' | img_tag: item.title }}
+                      <a  href="{{ item.url | within: collections.all }}">
+                        <img class="w-20 h-24 object-cover" src="{{ item.image | img_url: '80x96' }}" alt="">
                       </a>
+                    {% else %}
+                        <div class="w-20 h-24 bg-gray-400"></div>
                     {% endif %}
 
-                    <a href="{{ item.url }}" class="font-unna text-xl ml-4">{{ item.product.title }} </a>
+                    <a href="{{ item.url }}" 
+                       class="font-unna w-44 text-sm md:text-base lg:text-xl ml-4 w-full">{{ item.product.title }} </a>
 
                     
 
@@ -55,13 +58,13 @@
                         {% for p in item.properties %}
                           {% unless p.last == blank %}
                           {{ p.first }}:
-    
+
                           {% if p.last contains '/uploads/' %}
                             <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
                           {% else %}
                             {{ p.last }}
                           {% endif %}
-    
+
                           {% endunless %}
                         {% endfor %}
                       {% endif %}
@@ -79,13 +82,26 @@
                             aria-label="{{ 'cart.general.item_quantity' | t }}">
                   </td>
                   <!-- QTY End -->
-                  
+
                   <!-- Price  -->
+                  <td class="my-4 text-right px-4" data-label="{{ 'cart.label.price' | t }}">
+                      {% if item.original_line_price != item.line_price %}
+                        <span class="visually-hidden">{{ 'cart.label.discounted_price' | t }}</span>
+                        {{ item.price | money }}
+                        <span class="visually-hidden">{{ 'cart.label.original_price' | t }}</span>
+                        <s>{{ item.original_price | money }}</s>
+                      {% else %}
+                        {{ item.price | money }}
+                      {% endif %}
+                  </td>
+                  <!-- Price End -->
+                  
+                  <!-- Total  -->
                   <td class="my-4 text-right px-4" data-label="{{ 'cart.label.total' | t }}">
                     {{ item.line_price | money }}
 
                   </td>
-                  <!-- Price End -->
+                  <!-- Total End -->
 
                   <!-- Delete -->
                   <td class="my-4 px-4 relative">
@@ -102,8 +118,7 @@
             <tfoot class="border-b border-gray-300">
                 <tr class="-mx-4">
                     <td class="py-4 flex items-center">
-                        <button class="font-lato text-base text-gray-300 h-10 md:h-12 px-6 border border-gray-300">Promocode</button>
-                        <button class="font-montserrat text-sm text-white h-10 md:h-12 px-8 bg-gray-300 mx-2">APPLY</button>
+                        <a href="pages/shop" class="cursor-pointer font-montserrat font-bold text-sm text-green-400">Continue shopping?</a> 
                     </td>
 
                     <td class="text-right px-4 py-4 font-montserrat text-sm font-regular w-56">
@@ -113,7 +128,7 @@
                         {% endif %}
                     </td>
                     
-                    <td colspan="3" class="px-4 py-4 relative font-montserrat text-lg font-regular">
+                    <td colspan="4" class="px-4 py-4 relative font-montserrat text-lg font-regular">
                         <div class="flex flex-no-wrap items-center absolute right-0 inset-y-0">
                             <span class="font-montserrat text-sm font-thin text-gray-500 uppercase">Total Price:&nbsp;</span>
                             {{ cart.total_price | money }}
@@ -125,11 +140,11 @@
           </table>
         </div>
         <div class="flex flex-wrap items-center md:justify-end font-montserrat font-bold text-xs md:text-sm my-4 -mx-1">
-            <input class="flex items-center justify-center mx-1 text-green-400 uppercase h-10 md:h-12 w-32 md:w-48 border border-green-400 bg-white"
+            <input class="cursor-pointer flex items-center justify-center mx-1 text-green-400 uppercase h-10 md:h-12 w-32 md:w-48 border border-green-400 bg-white"
                     type="submit" 
                     name="update" 
                     value="{{ 'cart.general.update' | t }}">
-            <input class="flex items-center justify-center mx-1 text-white uppercase h-10 md:h-12 w-32 md:w-48 bg-green-400"
+            <input class="cursor-pointer flex items-center justify-center mx-1 text-white uppercase h-10 md:h-12 w-32 md:w-48 bg-green-400"
                   type="submit"
                   name="checkout" 
                   value="{{ 'cart.general.checkout' | t }}" >
