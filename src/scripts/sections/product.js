@@ -42,6 +42,7 @@ register('product', {
     this.product = await this.getProductJson(
       productFormElement.dataset.productHandle,
     );
+
     this.productForm = new ProductForm(productFormElement, this.product, {
       onOptionChange: this.onFormOptionChange.bind(this),
     });
@@ -67,10 +68,12 @@ register('product', {
 
   onFormOptionChange(event) {
     const variant = event.dataset.variant;
+    const moneyFormat = this.productForm.element.dataset
+    .moneyFormat;
 
     this.renderImages(variant);
-    this.renderPrice(variant);
-    this.renderComparePrice(variant);
+    this.renderPrice(variant, moneyFormat);
+    this.renderComparePrice(variant, moneyFormat);
     this.renderSubmitButton(variant);
 
     this.updateBrowserHistory(variant);
@@ -112,13 +115,13 @@ register('product', {
 
     if (!variant) {
       submitButton.disabled = true;
-      submitButtonText.innerText = theme.strings.unavailable;
+      submitButtonText.innerText = 'Unavailable';
     } else if (variant.available) {
       submitButton.disabled = false;
-      submitButtonText.innerText = theme.strings.addToCart;
+      submitButtonText.innerText = 'Add to Cart';
     } else {
       submitButton.disabled = true;
-      submitButtonText.innerText = theme.strings.soldOut;
+      submitButtonText.innerText = 'Sold Out';
     }
   },
 
@@ -131,7 +134,7 @@ register('product', {
     this.renderActiveThumbnail(variant.featured_image.id);
   },
 
-  renderPrice(variant) {
+  renderPrice(variant, moneyFormat) {
     const priceElement = this.container.querySelector(selectors.productPrice);
     const priceWrapperElement = this.container.querySelector(
       selectors.priceWrapper,
@@ -140,11 +143,11 @@ register('product', {
     priceWrapperElement.classList.toggle(classes.hide, !variant);
 
     if (variant) {
-      priceElement.innerText = formatMoney(variant.price, theme.moneyFormat);
+      priceElement.innerText = formatMoney(variant.price, moneyFormat);
     }
   },
 
-  renderComparePrice(variant) {
+  renderComparePrice(variant, moneyFormat) {
     if (!variant) {
       return;
     }
@@ -163,7 +166,7 @@ register('product', {
     if (variant.compare_at_price > variant.price) {
       comparePriceElement.innerText = formatMoney(
         variant.compare_at_price,
-        theme.moneyFormat,
+        moneyFormat,
       );
       compareTextElement.classList.remove(classes.hide);
       comparePriceElement.classList.remove(classes.hide);

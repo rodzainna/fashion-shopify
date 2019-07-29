@@ -41,7 +41,7 @@
               <div class="flex flex-col">
                 <!-- Product Details Start -->
                 <div class="flex flex-col py-6">
-                  <div class="flex flex-wrap -mx-2">
+                  <div class="">
                       {% include 'breadcrumbs' %}
                     <!-- <span class="uppercase font-montserrat text-sm text-gray-400 px-2">Shop</span>
                     <span class="uppercase font-montserrat text-sm text-gray-400 px-2">/</span>
@@ -56,7 +56,7 @@
                 </div>
                 <!-- Product Details End -->
 
-                {% form 'product', product, data-product-form: '', data-product-handle: product.handle, data-enable-history-state: 'true' %}
+                {% form 'product', product, data-product-form: '', data-product-handle: product.handle, data-enable-history-state: 'true', data-money-format: shop.money_format %}
                   
                   <!-- Product Variants Start -->
                   <div class="border-t border-b border-gray-500 py-6">
