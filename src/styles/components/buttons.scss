@@ -1,11 +1,13 @@
-.button {
-  display: inline-block;
-  vertical-align: middle;
-  width: auto;
-  border: 0;
-  text-align: center;
-  white-space: nowrap;
-  text-decoration: none;
-  user-select: none;
-  appearance: none;
+button:disabled {
+  background-color: gainsboro;
+  cursor: not-allowed;
+}
+
+button:disabled:hover {
+  background-color: gainsboro;
+  cursor: not-allowed;
+}
+
+.hide {
+  display: none;
 }

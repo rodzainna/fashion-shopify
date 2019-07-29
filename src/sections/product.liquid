@@ -87,6 +87,12 @@
                                   {% endif %}
                                 </div>
                             {% endfor %}
+
+                            <select class="hidden" name="id">
+                              {% for variant in product.variants %}
+                                  <option value="{{ variant.id }}">{{ variant.title }}</option>
+                              {% endfor %}
+                            </select>
                         {% else %}
                             <select class="hidden" name="id">
                               {% for variant in product.variants %}
@@ -143,17 +149,17 @@
 
                         <!-- Price -->
                         <div class="mt-2 md:mt-0" data-price-wrapper>
-                            <span class="md:mt-0 md:ml-4 font-unna text-4xl" data-product-price>
+                            <span class="md:mt-0 md:ml-4 font-unna text-4xl"  data-product-price>
                               {{ current_variant.price | money }}
                             </span>
               
                             {% if product.compare_at_price_max > product.price %}
-                            <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
-                            <s data-compare-price>
-                              {% if current_variant.compare_at_price > current_variant.price %}
-                              {{ current_variant.compare_at_price | money }}
-                              {% endif %}
-                            </s>
+                              <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+                              <s data-compare-price>
+                                {% if current_variant.compare_at_price > current_variant.price %}
+                                {{ current_variant.compare_at_price | money }}
+                                {% endif %}
+                              </s>
                             {% endif %}
                         </div>
                     </div>
