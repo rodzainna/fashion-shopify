@@ -9,7 +9,6 @@ import '../../styles/theme.scss';
 import '../../styles/theme.scss.liquid';
 
 import './app';
-import '../sections/header';
 
 import {focusHash, bindInPageLinks} from '@shopify/theme-a11y';
 import {cookiesEnabled} from '@shopify/theme-cart';

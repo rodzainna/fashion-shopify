@@ -14382,7 +14382,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
+var $ = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.noConflict();
+$(document).ready(function () {
   initHeaderScroll();
   initBannerSlider();
   initEventSlider();
@@ -14394,44 +14395,44 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   initProduct2Tabs();
 
   function initProduct2Tabs() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#product2-info-tab').click(function () {
+    $('#product2-info-tab').click(function () {
       product2ResetTabs();
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#product2-info-tab').addClass('product2-active'); //Show selected tab
+      $('#product2-info-tab').addClass('product2-active'); //Show selected tab
 
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#product2-info').removeClass('hidden');
+      $('#product2-info').removeClass('hidden');
     });
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#product2-wear-with-tab').click(function () {
+    $('#product2-wear-with-tab').click(function () {
       product2ResetTabs();
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#product2-wear-with-tab').addClass('product2-active'); //Show selected tab
+      $('#product2-wear-with-tab').addClass('product2-active'); //Show selected tab
 
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#product2-wear-with').removeClass('hidden');
+      $('#product2-wear-with').removeClass('hidden');
     });
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#product2-size-info-tab').click(function () {
+    $('#product2-size-info-tab').click(function () {
       product2ResetTabs();
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#product2-size-info-tab').addClass('product2-active'); //Show selected tab
+      $('#product2-size-info-tab').addClass('product2-active'); //Show selected tab
 
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#product2-size-info').removeClass('hidden');
+      $('#product2-size-info').removeClass('hidden');
     });
   }
 
   function product2ResetTabs() {
     //Change Active
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#product2-wear-with-tab').removeClass('product2-active');
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#product2-info-tab').removeClass('product2-active');
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#product2-size-info-tab').removeClass('product2-active'); //Hide other tabs
+    $('#product2-wear-with-tab').removeClass('product2-active');
+    $('#product2-info-tab').removeClass('product2-active');
+    $('#product2-size-info-tab').removeClass('product2-active'); //Hide other tabs
 
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#product2-info').addClass('hidden');
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#product2-wear-with').addClass('hidden');
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#product2-size-info').addClass('hidden');
+    $('#product2-info').addClass('hidden');
+    $('#product2-wear-with').addClass('hidden');
+    $('#product2-size-info').addClass('hidden');
   }
 
   function initSuggestedArticles() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#suggested-articles').slick({
+    $('#suggested-articles').slick({
       infinite: false,
       slidesToShow: 2,
       slidesToScroll: 1,
-      prevArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('#articles-prev'),
-      nextArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('#articles-next'),
+      prevArrow: $('#articles-prev'),
+      nextArrow: $('#articles-next'),
       responsive: [{
         breakpoint: 1024,
         settings: {
@@ -14459,24 +14460,24 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
 
   function initHeaderScroll() {
     console.log('init Header Scroll');
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scroll(function () {
-      var scroll = jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop();
+    $(window).scroll(function () {
+      var scroll = $(window).scrollTop();
 
       if (scroll >= 10) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()("#header #header-logo-white").hide();
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()("#header #header-logo-black").show();
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#header').addClass('darkHeader');
+        $("#header #header-logo-white").hide();
+        $("#header #header-logo-black").show();
+        $('#header').addClass('darkHeader');
       } else {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()("#header #header-logo-white").show();
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()("#header #header-logo-black").hide();
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#header').removeClass('darkHeader');
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#header').addClass('clearHeader');
+        $("#header #header-logo-white").show();
+        $("#header #header-logo-black").hide();
+        $('#header').removeClass('darkHeader');
+        $('#header').addClass('clearHeader');
       }
     });
   }
 
   function initVerticalSlider() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#slider-v-for').slick({
+    $('#slider-v-for').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: false,
@@ -14484,7 +14485,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       asNavFor: '#slider-v-nav',
       cssEase: 'linear'
     });
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#slider-v-nav').slick({
+    $('#slider-v-nav').slick({
       infinite: true,
       slidesToShow: 2,
       slidesToScroll: 1,
@@ -14521,7 +14522,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   }
 
   function initHorizontalSlider() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#slider-for').slick({
+    $('#slider-for').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: false,
@@ -14529,7 +14530,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       asNavFor: '#slider-nav' // cssEase:'linear',
 
     });
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#slider-nav').slick({
+    $('#slider-nav').slick({
       infinite: false,
       slidesToShow: 5,
       slidesToScroll: 1,
@@ -14565,7 +14566,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
 
   function initBannerSlider() {
     console.log('init Banner Sliders');
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#banner-slider').slick({
+    $('#banner-slider').slick({
       autoplay: true,
       autoplaySpeed: 3000,
       // dots: true,
@@ -14599,12 +14600,12 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
 
   function initEventSlider() {
     console.log('init Event Scroll');
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#upcoming-events-items').slick({
+    $('#upcoming-events-items').slick({
       infinite: false,
       slidesToShow: 4,
       slidesToScroll: 1,
-      prevArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('#events-prev'),
-      nextArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('#events-next'),
+      prevArrow: $('#events-prev'),
+      nextArrow: $('#events-next'),
       responsive: [{
         breakpoint: 1024,
         settings: {
@@ -14629,12 +14630,12 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   }
 
   function initTopNewsSlider() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#top-news').slick({
+    $('#top-news').slick({
       infinite: false,
       slidesToShow: 3,
       slidesToScroll: 1,
-      prevArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('#top-news-prev'),
-      nextArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('#top-news-next'),
+      prevArrow: $('#top-news-prev'),
+      nextArrow: $('#top-news-next'),
       responsive: [{
         breakpoint: 1024,
         settings: {
@@ -14660,7 +14661,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
 
   function initBlogsSlider() {
     console.log('init Blog Sliders');
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#blog-slider').slick({
+    $('#blog-slider').slick({
       autoplay: true,
       autoplaySpeed: 3000,
       dots: true,
