@@ -1,0 +1,13 @@
+{% if footer %}
+    <a href="{{ twitter_url }}" 
+        target="_blank"
+        class="text-gray-300 hover:text-green-400">
+        {% include 'icon-twitter' %}
+    </a>
+{% else %}
+    <a href="//twitter.com/share?text={{ product.title | url_param_escape }}&amp;url={{ shop.url | append: product.url }}"
+        target="_blank"
+        class="text-gray-300 hover:text-green-400">
+        {% include 'icon-twitter' %}
+    </a>
+{% endif %}
