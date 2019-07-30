@@ -1,3 +1,42 @@
+{%- comment -%}
 <div class="pagination">
   {{ paginate | default_pagination }}
 </div>
+
+{%- endcomment -%}
+
+<!-- Pagination Start -->
+<div class="w-full border-t border-b border-green-300 relative mx-4">
+    <div class="flex flex-no-wrap items-center w-full relative py-4">
+        {% if paginate.previous.is_link %}
+        <a class="absolute left-0 cursor-pointer z-10" href="{{ paginate.previous.url }}">
+            <svg width="26" height="8" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25.98 5.038V3.024H5.01V0L0 4.034l5.013 3.992v-2.98z" fill="#B2B2B2"
+                    fill-rule="evenodd" /></svg>
+        </a>
+        {% endif %}
+
+        <ul class="absolute flex flex-wrap justify-center w-full z-0">
+            {% for part in paginate.parts %}
+              {% assign selected = 'font-bold' %}
+
+              <!-- Highlight the current page -->
+              {% if part.is_link %}
+                  {% assign selected = '' %}
+              {% endif %}
+
+              <!-- Display the number of pages -->
+              <li><a class="{{ selected }} font-montserrat text-xs px-2" href="{{ part.url }}">{{ part.title }}</a></li>
+            {% endfor %}
+        </ul>
+
+        {% if paginate.next.is_link %}
+        <a class="absolute right-0 cursor-pointer z-10" href="{{ paginate.next.url }}">
+            <svg width="26" height="8" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 2.987v2.015h20.97v3.024l5.01-4.035L20.967 0v2.98z" fill="#B2B2B2"
+                    fill-rule="evenodd" /></svg>
+        </a>
+        {% endif %}
+    </div>
+</div>
+<!-- End Pagination -->

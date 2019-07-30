@@ -145,7 +145,7 @@
 
                         <!-- Heart Icon -->
                         <button
-                          class="flex justify-center items-center h-11 w-11 border border-green-500 text-green-400 hover:text-white hover:border-text-green-200 hover:bg-green-500">
+                          class="flex justify-center items-center mr-4 h-11 w-11 border border-green-500 text-green-400 hover:text-white hover:border-text-green-200 hover:bg-green-500">
                           <svg width="16" height="15" xmlns="http://www.w3.org/2000/svg">
                             <path
                               d="M11.5 1.5a3.005 3.005 0 0 1 3 3c0 4.42-4.717 7.69-6.5 8.77-1.784-1.08-6.5-4.35-6.5-8.77a3 3 0 0 1 5.333-1.88 1.5 1.5 0 0 0 1.166.55 1.5 1.5 0 0 0 1.166-.55A2.993 2.993 0 0 1 11.5 1.5zm0-1.5a4.5 4.5 0 0 1-7 0A4.5 4.5 0 0 0 0 4.5c0 6 7 10 8 10.5 1-.5 8-4.5 8-10.5A4.5 4.5 0 0 0 11.5 0z"
@@ -154,7 +154,7 @@
 
                         <!-- Price -->
                         <div class="mt-2 md:mt-0" data-price-wrapper>
-                            <span class="md:mt-0 md:ml-4 font-unna text-4xl"  data-product-price>
+                            <span class="font-unna text-4xl"  data-product-price>
                               {{ current_variant.price | money }}
                             </span>
               
@@ -183,16 +183,6 @@
                       <!-- Twitter -->
                       <div class="px-2">
                         {% include 'share-twitter' %}
-                      </div>
-
-                      <!-- Instagram -->
-                      <div class="px-2">
-                        {% include 'share-instagram' %}
-                      </div>
-
-                      <!-- GPlus -->
-                      <div class="px-2">
-                        {% include 'share-gplus' %}
                       </div>
                     </div>
                     <a href="#" class="underline text-gray-500 font-lato text-base pt-6">What is my size?</a>
