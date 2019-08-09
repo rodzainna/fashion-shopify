@@ -1,4 +1,10 @@
+.ais-RefinementList-labelText {
+  font-size: 12px;
+  color: #999999;
+}
+
 /* The container */
+.ais-RefinementList-item,
 .checkbox-wrapper {
     display: block;
     position: relative;
@@ -12,6 +18,7 @@
   }
   
   /* Hide the browser's default checkbox */
+  .ais-RefinementList-item input, 
   .checkbox-wrapper input {
     position: absolute;
     opacity: 0;
@@ -21,6 +28,7 @@
   }
   
   /* Create a custom checkbox */
+  .ais-RefinementList-checkbox,
   .checkbox-checkmark {
     position: absolute;
     top: 5px;
@@ -31,18 +39,21 @@
   }
   
   /* On mouse-over, add a grey background color */
+  .ais-RefinementList-item:hover input ~ .ais-RefinementList-checkbox,
   .checkbox-wrapper:hover input ~ .checkbox-checkmark {
     background-color: #998e76;
     // @apply bg-green-400;
   }
   
   /* When the checkbox is checked, add a blue background */
+  .ais-RefinementList-item input:checked ~ .ais-RefinementList-checkbox,
   .checkbox-wrapper input:checked ~ .checkbox-checkmark {
     background-color: #998e76;
     // @apply bg-green-400;
   }
   
   /* Create the checkmark/indicator (hidden when not checked) */
+  .ais-RefinementList-checkbox:after,
   .checkbox-checkmark:after {
     content: "";
     position: absolute;
@@ -50,11 +61,13 @@
   }
   
   /* Show the checkmark when checked */
+  .ais-RefinementList-item input:checked ~ .ais-RefinementList-checkbox:after,
   .checkbox-wrapper input:checked ~ .checkbox-checkmark:after {
     display: block;
   }
   
   /* Style the checkmark/indicator */
+  .ais-RefinementList-item .ais-RefinementList-checkbox:after,
   .checkbox-wrapper .checkbox-checkmark:after {
     left: 2px;
     top: 2px;
